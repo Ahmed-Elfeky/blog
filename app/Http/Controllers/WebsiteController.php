@@ -20,10 +20,11 @@ public function contact(){
 public function blog(){
     return view('website.blog');
 }
-public function register(){
-    return view('website.register');
-}
-// public function Login(){
+
+// public function register(){
+//     return view('website.register');
+// }
+// public function LoginBlog(){
 //     return view('website.login');
 // }
 

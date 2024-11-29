@@ -11,8 +11,7 @@ Route::get('/','index')->name('index');
 Route::get('/category','category')->name('category');
 Route::get('/contact','contact')->name('contact');
 Route::get('/blog','blog')->name('blog');
-Route::get('/register','register')->name('register');
-// Route::get('/login','Login')->name('login');
+
 });
 
 
