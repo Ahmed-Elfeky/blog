@@ -10,18 +10,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse offset " id="navbarSupportedContent">
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav justify-content-center">
-                        <li class="nav-item @yield('home-active')"><a class="nav-link" href="{{ route('website.index') }}">Home</a>
-                        </li>
-                        <li class="nav-item @yield('category-active')"><a class="nav-link" href="{{ route('website.category') }}">Category</a>
+                        <li class="nav-item @yield('home-active')"><a class="nav-link" href="{{ route('website.index') }}">Home</a></li>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another </a></li>
+                              <li><a class="dropdown-item" href="#">Something  </a></li>
+                            </ul>
+                          </div>
+                        {{-- <li class="nav-item @yield('category-active')"><a class="nav-link" href="{{ route('website.category') }}">Category</a></li> --}}
                         <li class="nav-item @yield('contact-active')"><a class="nav-link" href="{{ route('website.contact') }}">Contact</a></li>
-                        <li class="nav-item @yield('blog-active')"><a class="nav-link" href="{{ route('website.blog') }}">Blog</a>
-                        </li>
+                        <li class="nav-item @yield('blog-active')"><a class="nav-link" href="{{ route('website.blog') }}">Blog</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right navbar-social">
-                        @if(!Auth::check())
+                        <a href="{{ route('blogs.create') }}" class="btn btn-sm btn-primary mr-1">Add New Blog</a>
 
+                    <ul class="nav navbar-nav navbar-right navbar-social">
+
+                        @if(!Auth::check())
                         <a href="{{ route('register') }}" class="btn btn-sm btn-warning">Register / Login</a>
                         @else
                         <li class="nav-item submenu dropdown">
