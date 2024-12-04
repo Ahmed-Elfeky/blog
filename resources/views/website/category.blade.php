@@ -1,14 +1,14 @@
 @extends('website.layouts.master')
-@section('title','Blog')
-@section('category-active','active')
+@section('title', 'Blog')
+@section('category-active', 'active')
 @section('contact')
 
 <!--================ Hero sm Banner start =================-->
-@include('website.layouts.hero',['title'=>'Category Page'])
+@include('website.layouts.hero', ['title' => 'Category Page'])
 
 <!--================ Hero sm Banner end =================-->
 @php
-$categories = App\Models\Category::get()
+$categories = App\Models\Category::get();
 @endphp
 <!--================ Start Blog Post Area =================-->
 <section class="blog-post-area section-margin">
@@ -16,91 +16,34 @@ $categories = App\Models\Category::get()
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-                    @if ($categories->count()> 0)
-                    @foreach ($categories as $category)
 
                     <div class="col-md-6">
+
+                        @if(isset($blogs) && count($blogs) > 0)
+                        @foreach ($blogs as $blog )
                         <div class="single-recent-blog-post card-view">
                             <div class="thumb">
-                                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card1.png" alt="">
+                                <img class="card-img rounded-0" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
                                 <ul class="thumb-info">
-                                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                                    <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+                                    <li><a href="#"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
+                                    <li><a href="#"><i class="ti-themify-favicon"></i>{{ $blog->category->name }}</a></li>
                                 </ul>
                             </div>
                             <div class="details mt-20">
                                 <a href="blog-single.html">
-                                    <h3>{{$category->name}}</h3>
+                                    <h3>{{ $blog->name }}</h3>
                                 </a>
-                                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
+                                <p>{{ $blog->desc }}</p>
                                 <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
-                    @endif
+                        @endforeach
+                        @endif
 
-                </div>
-
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/blog/blog2.png" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                            <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h3>Woman claims husband wants to name baby girl
-                                after his ex-lover sparking.</h3>
-                        </a>
-                        <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/blog/blog3.png" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                            <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                                ination reputation all time. </h3>
-                        </a>
-                        <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
 
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/blog/blog4.png" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                            <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                                ination reputation all time. </h3>
-                        </a>
-                        <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
 
 
 
@@ -146,10 +89,9 @@ $categories = App\Models\Category::get()
 
                     <div class="single-sidebar-widget post-category-widget">
                         <h4 class="single-sidebar-widget__title">Catgory</h4>
-                        @if($categories->count() > 0)
+                        @if ($categories->count() > 0)
 
                         @foreach ($categories as $category)
-
                         <ul class="cat-list mt-20">
                             <li>
                                 <a href="#" class="d-flex justify-content-between">

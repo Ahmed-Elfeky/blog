@@ -187,11 +187,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+
                     @if(count($blogs) > 0)
                     @foreach($blogs as $blog)
                     <div class="single-recent-blog-post">
                         <div class="thumb">
-                            <img class="img-fluid" style="width:100%" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
                             <ul class="thumb-info">
                                 <li><a href="#"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
                                 <li><a href="#"><i class="ti-notepad"></i>{{ $blog->created_at->format('d M Y') }}</a></li>
@@ -211,11 +212,6 @@
                     </div>
                     @endforeach
                     @endif
-
-
-
-
-
 
 
                     <div class="row">
@@ -257,122 +253,7 @@
                             <button class="bbtns d-block mt-20 w-100">Subcribe</button>
                         </div>
 
-
-                        <div class="single-sidebar-widget post-category-widget">
-                            <h4 class="single-sidebar-widget__title">Catgory</h4>
-                            <ul class="cat-list mt-20">
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Technology</p>
-                                        <p>(03)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Software</p>
-                                        <p>(09)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Lifestyle</p>
-                                        <p>(12)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Shopping</p>
-                                        <p>(02)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Food</p>
-                                        <p>(10)</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="single-sidebar-widget popular-post-widget">
-                            <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                            <div class="popular-post-list">
-                                <div class="single-post-list">
-                                    <div class="thumb">
-                                        <img class="card-img rounded-0" src="assets/img/blog/thumb/thumb1.png" alt="">
-                                        <ul class="thumb-info">
-                                            <li><a href="#">Adam Colinge</a></li>
-                                            <li><a href="#">Dec 15</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="details mt-20">
-                                        <a href="blog-single.html">
-                                            <h6>Accused of assaulting flight attendant miktake alaways</h6>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="single-post-list">
-                                    <div class="thumb">
-                                        <img class="card-img rounded-0" src="assets/img/blog/thumb/thumb2.png" alt="">
-                                        <ul class="thumb-info">
-                                            <li><a href="#">Adam Colinge</a></li>
-                                            <li><a href="#">Dec 15</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="details mt-20">
-                                        <a href="blog-single.html">
-                                            <h6>Tennessee outback steakhouse the
-                                                worker diagnosed</h6>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="single-post-list">
-                                    <div class="thumb">
-                                        <img class="card-img rounded-0" src="assets/img/blog/thumb/thumb3.png" alt="">
-                                        <ul class="thumb-info">
-                                            <li><a href="#">Adam Colinge</a></li>
-                                            <li><a href="#">Dec 15</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="details mt-20">
-                                        <a href="blog-single.html">
-                                            <h6>Tennessee outback steakhouse the
-                                                worker diagnosed</h6>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-sidebar-widget tag_cloud_widget">
-                            <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">project</a>
-                                </li>
-                                <li>
-                                    <a href="#">love</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">software</a>
-                                </li>
-                                <li>
-                                    <a href="#">life style</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @include('website.layouts.sidebar')
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WebsiteController;
@@ -10,17 +11,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(WebsiteController::class)->name('website.')->group(function(){
 Route::get('/','index')->name('index');
-Route::get('/category','category')->name('category');
+Route::get('/category/{id}','category')->name('category');
 Route::get('/contact','contact')->name('contact');
 Route::get('/blog','blog')->name('blog');
-Route::get('/blog/details/{$id}','blogDetailes')->name('blog.details');
+Route::get('/blog/details/{id}','blogDetailes')->name('blog.details');
 
 });
 // contact routes //
 Route::get('/contact-create',[ContactController::class, 'create']);
 Route::post('/contact-post',[ContactController::class, 'store'])->name('contact.store');
 // category routes //
-Route::get('/category-create',[ContactController::class, 'create']);
+Route::get('/category-create',[CategoryController::class, 'create']);
 Route::post('/category-post',[ContactController::class, 'store'])->name('category.store');
 
 // blog routes //
