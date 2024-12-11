@@ -2,7 +2,6 @@
 @section('title','Blog')
 @section('home-active','active')
 @section('contact')
-
 <main class="site-main">
     <!--================Hero Banner start =================-->
     <section class="mb-30px">
@@ -187,12 +186,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-
-                    @if(count($blogs) > 0)
+                    @if(isset($blogs) && count($blogs) > 0)
                     @foreach($blogs as $blog)
                     <div class="single-recent-blog-post">
                         <div class="thumb">
-                            <img class="img-fluid w-100" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
+                            <img class="img-fluid" style="width:600px;height:300px;" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
                             <ul class="thumb-info">
                                 <li><a href="#"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
                                 <li><a href="#"><i class="ti-notepad"></i>{{ $blog->created_at->format('d M Y') }}</a></li>
@@ -200,14 +198,14 @@
                             </ul>
                         </div>
                         <div class="details mt-20">
-                            <a href="blog-single.html">
+                            <a href="{{ route('blogs.show',['blog'=>$blog]) }}">
                                 <h3>{{ $blog->name }}</h3>
                             </a>
                             <p class="tag-list-inline">category:
                                 <a href="#"> <span style="color:blue">{{ $blog->category->name }}</span>
                             </p>
                             <p> {{ $blog->desc }}</p>
-                            <a class="button" href="{{ route('website.blog.details' ,$blog->id) }}">Read More <i class="ti-arrow-right"></i></a>
+                            <a class="button" href="{{ route('blogs.show',['blog'=>$blog]) }}">Read More <i class="ti-arrow-right"></i></a>
                         </div>
                     </div>
                     @endforeach

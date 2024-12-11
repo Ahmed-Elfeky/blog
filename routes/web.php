@@ -15,6 +15,8 @@ Route::get('/category/{id}','category')->name('category');
 Route::get('/contact','contact')->name('contact');
 Route::get('/blog','blog')->name('blog');
 Route::get('/blog/details/{id}','blogDetailes')->name('blog.details');
+//route to show my blog
+Route::get('/blog/MyBlog','MyBlog')->name('MyBlog');
 
 });
 // contact routes //

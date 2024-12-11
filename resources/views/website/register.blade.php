@@ -5,7 +5,7 @@
 <!-- ================ contact section start ================= -->
 <section class="section-margin--small section-margin">
     <div class="container">
-        <form action="{{ route('register.post') }}" method="post">
+        <form action="{{ route('register.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-6">
@@ -28,11 +28,16 @@
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
                 </div>
+                <div class="custom-file">
+                    <input name="logo" type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Choose logo</label>
+                </div>
                 <div class="form-group text-center mt-3">
                     <a href="{{ route('login') }}" class="mx-3">Alredy register ? </a>
                     <button type="submit" class="button button--active button-contactForm">Send</button>
                 </div>
             </div>
+           
         </form>
     </div>
 </section>

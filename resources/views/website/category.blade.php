@@ -4,7 +4,7 @@
 @section('contact')
 
 <!--================ Hero sm Banner start =================-->
-@include('website.layouts.hero', ['title' => 'Category Page'])
+@include('website.layouts.hero', ['title' => $category->name .' '.'category'])
 
 <!--================ Hero sm Banner end =================-->
 @php
@@ -16,14 +16,12 @@ $categories = App\Models\Category::get();
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-
-                    <div class="col-md-6">
-
+                    <div class="col-md-6">  
                         @if(isset($blogs) && count($blogs) > 0)
                         @foreach ($blogs as $blog )
                         <div class="single-recent-blog-post card-view">
                             <div class="thumb">
-                                <img class="card-img rounded-0" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
+                                <img class="card-img rounded-1" src="{{ asset('images/blogs/'.$blog->image) }}" >
                                 <ul class="thumb-info">
                                     <li><a href="#"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
                                     <li><a href="#"><i class="ti-themify-favicon"></i>{{ $blog->category->name }}</a></li>
@@ -39,14 +37,8 @@ $categories = App\Models\Category::get();
                         </div>
                         @endforeach
                         @endif
-
                     </div>
                 </div>
-
-
-
-
-
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="blog-pagination justify-content-center d-flex">
@@ -90,7 +82,6 @@ $categories = App\Models\Category::get();
                     <div class="single-sidebar-widget post-category-widget">
                         <h4 class="single-sidebar-widget__title">Catgory</h4>
                         @if ($categories->count() > 0)
-
                         @foreach ($categories as $category)
                         <ul class="cat-list mt-20">
                             <li>
