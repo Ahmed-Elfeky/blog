@@ -2,7 +2,7 @@
 @section('title','Blog-details')
 @section('contact')
 
-@include('website.layouts.hero',['title'=>'Blog-details'])
+@include('website.layouts.hero',['title'=>$blog->name])
 
 <!--================ Start Blog Post Area =================-->
 <section class="blog-post-area section-margin">

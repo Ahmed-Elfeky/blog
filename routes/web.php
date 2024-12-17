@@ -24,7 +24,7 @@ Route::get('/contact-create',[ContactController::class, 'create']);
 Route::post('/contact-post',[ContactController::class, 'store'])->name('contact.store');
 // category routes //
 Route::get('/category-create',[CategoryController::class, 'create']);
-Route::post('/category-post',[ContactController::class, 'store'])->name('category.store');
+Route::post('/category-post',[CategoryController::class, 'store'])->name('category.store');
 
 // blog routes //
 Route::resource('/blogs',BlogController::class);

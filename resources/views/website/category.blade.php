@@ -16,14 +16,14 @@ $categories = App\Models\Category::get();
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         @if(isset($blogs) && count($blogs) > 0)
                         @foreach ($blogs as $blog )
                         <div class="single-recent-blog-post card-view">
                             <div class="thumb">
-                                <img class="card-img rounded-1" src="{{ asset('images/blogs/'.$blog->image) }}" >
+                                <img class="card-img" src="{{ asset('images/blogs/'.$blog->image) }}">
                                 <ul class="thumb-info">
-                                    <li><a href="#"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
+                                    <li><a href="{{ route('blogs.show',['blog'=>$blog]) }}"><i class="ti-user"></i>{{ $blog->user->name }}</a></li>
                                     <li><a href="#"><i class="ti-themify-favicon"></i>{{ $blog->category->name }}</a></li>
                                 </ul>
                             </div>
@@ -32,7 +32,7 @@ $categories = App\Models\Category::get();
                                     <h3>{{ $blog->name }}</h3>
                                 </a>
                                 <p>{{ $blog->desc }}</p>
-                                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                                <a class="button" href="{{ route('blogs.show',['blog'=>$blog]) }}">Read More <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                         @endforeach
@@ -102,7 +102,7 @@ $categories = App\Models\Category::get();
                         <div class="popular-post-list">
                             <div class="single-post-list">
                                 <div class="thumb">
-                                    <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
+                                    <img class="card-img rounded-0" src="{{asset('/category/img/blog/thumb/thumb1.png')}}" alt="">
                                     <ul class="thumb-info">
                                         <li><a href="#">Adam Colinge</a></li>
                                         <li><a href="#">Dec 15</a></li>
@@ -116,7 +116,7 @@ $categories = App\Models\Category::get();
                             </div>
                             <div class="single-post-list">
                                 <div class="thumb">
-                                    <img class="card-img rounded-0" src="img/blog/thumb/thumb2.png" alt="">
+                                    <img class="card-img rounded-0" src="{{asset('/category/img/blog/thumb/thumb2.png')}}" alt="">
                                     <ul class="thumb-info">
                                         <li><a href="#">Adam Colinge</a></li>
                                         <li><a href="#">Dec 15</a></li>
@@ -131,7 +131,7 @@ $categories = App\Models\Category::get();
                             </div>
                             <div class="single-post-list">
                                 <div class="thumb">
-                                    <img class="card-img rounded-0" src="img/blog/thumb/thumb3.png" alt="">
+                                    <img class="card-img rounded-0" src="{{asset('category/img/blog/thumb/thumb3.png')}}" alt="">
                                     <ul class="thumb-info">
                                         <li><a href="#">Adam Colinge</a></li>
                                         <li><a href="#">Dec 15</a></li>

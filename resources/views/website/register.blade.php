@@ -31,15 +31,15 @@
                 <div class="custom-file">
                     <input name="logo" type="file" class="custom-file-input" id="exampleInputFile">
                     <label class="custom-file-label" for="exampleInputFile">Choose logo</label>
+                    <x-input-error :messages="$errors->get('logo')" class="mt-2" />
+
                 </div>
                 <div class="form-group text-center mt-3">
                     <a href="{{ route('login') }}" class="mx-3">Alredy register ? </a>
                     <button type="submit" class="button button--active button-contactForm">Send</button>
                 </div>
             </div>
-           
         </form>
     </div>
 </section>
-
 @endsection

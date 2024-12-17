@@ -210,8 +210,6 @@
                     </div>
                     @endforeach
                     @endif
-
-
                     <div class="row">
                         <div class="col-lg-12">
                             <nav class="blog-pagination justify-content-center d-flex">
@@ -237,7 +235,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Start Blog Post Siddebar -->
                 <div class="col-lg-4 sidebar-widgets">
                     <div class="widget-wrap">
