@@ -4,11 +4,55 @@
 
 @include('website.layouts.hero',['title'=>'My Blog'])
 
+
+
+
+
 <!--================ Start Blog Post Area =================-->
 <section class="blog-post-area section-margin">
     <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                @foreach ($blogs as $blog)
+                <tr>
+                    <td>{{ $blog->name }}</td>
+                    <td>{{ $blog->category->name }}</td>
+                    <td>{{ $blog->created_at->format('d M Y') }}</td>
+                    <td><img class="assets/img-fluid" width="60" height="50" src="{{ asset('images/blogs/'.$blog->image) }}" alt="">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger deleteBlogBtn" data-toggle="modal" data-id="{{ $blog->id }}" data-url="{{ route('blogs.destroy',$blog->id) }}" data-name="{{$blog->name}}" data-target="#deleteBlog"><i class="fas fa-trash"></i></button>
+                        <a href="{{ route('blogs.edit',$blog->id) }}" class="btn btn-dark "><i class="fas fa-edit"></i></a>
+                    </td>
+                 
+                </tr>
+                @endforeach
+                
+                
+            </tbody>
+        </table>
+        
+        
+        
+
+{{-- 
         <div class="row">
             <div class="col-lg-8">
+
+
+
+
+
                 @if(isset($blogs) && count($blogs) > 0 )
                 @foreach ($blogs as $blog)
                 <div class="main_blog_details">
@@ -20,9 +64,7 @@
                         <div class="float-left">
                             <a href="{{ route('blogs.edit',$blog->id) }}">تعديل</a>
 
-                            <button type="button" class="btn btn-danger deleteBlogBtn" data-toggle="modal"
-                             data-id="{{ $blog->id }}" data-url="{{ route('blogs.destroy',$blog->id) }}" 
-                             data-name="{{$blog->name}}" data-target="#deleteBlog">حذف</button>
+                            <button type="button" class="btn btn-danger deleteBlogBtn" data-toggle="modal" data-id="{{ $blog->id }}" data-url="{{ route('blogs.destroy',$blog->id) }}" data-name="{{$blog->name}}" data-target="#deleteBlog">حذف</button>
 
                         </div>
                         <div class="float-right mt-sm-0 mt-3">
@@ -41,7 +83,7 @@
                 @endforeach
                 @endif
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!-- Modal -->
@@ -89,6 +131,7 @@
             $('#deleteBlog').modal('hide');
         });
     });
+
 </script>
 @endsection
 @endsection
