@@ -52,7 +52,6 @@ class BlogController extends Controller
 
 public function show(Blog $blog){
     $comments  = Comment::all();
-// dd($comments);
     return view('website.blogs.details', compact('blog','comments'));
 
 }
@@ -60,12 +59,11 @@ public function show(Blog $blog){
     public function edit($id)
     {
         $blog = Blog::find($id);
-        return view('website.blogs.edit', compact('blog'));
+        $categories = Category::all();
+        return view('website.blogs.edit', compact('blog','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(UpdateBlogRequest $request,  $id)
     {
         $blog = Blog::find($id);

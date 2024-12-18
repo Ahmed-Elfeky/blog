@@ -24,6 +24,8 @@ class CommentRequest extends FormRequest
         return [
             'name'=> 'required|string',
             'message'=>'required|string',
+            'email'=>'required|email',
+            'subject'=>'required',
             'blog_id' => 'required'
         ];
     }

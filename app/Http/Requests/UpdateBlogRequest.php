@@ -23,7 +23,7 @@ class UpdateBlogRequest extends FormRequest
     {
         return [
            'name' => "nullable|string",
-           'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+           'image' => 'nullable|image|max:2048',
            'desc' => "nullable|string",
            'category_id' => "nullable",
         ];

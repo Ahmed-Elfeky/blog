@@ -22,7 +22,7 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'logo' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            // 'logo' => 'nullable|image|max:2048',
             // 'name' => 'nullable', 'string', 'max:255',
             // 'email' => 'nullable', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class,
             // 'password' => 'nullable', 'confirmed',

@@ -26,7 +26,7 @@ Route::post('/contact-post', [ContactController::class, 'store'])->name('contact
 Route::get('/category-create', [CategoryController::class, 'create']);
 Route::post('/category-post', [CategoryController::class, 'store'])->name('category.store');
 // comment routes
-Route::post('/category-post', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/comments-post', [CommentController::class, 'store'])->name('comments.store');
 
 
 // blog routes //

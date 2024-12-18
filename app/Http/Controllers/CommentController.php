@@ -10,22 +10,16 @@ class CommentController extends Controller
 {
     
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('website.blogs.details');
-    }
+  
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(CommentRequest $request)
     {
-        dd('sss');
-        $comment = Comment::validated();
-        Comment::create($request->all());
+      
+        $data = $request->validated();
+        Comment::create($data);
         return redirect()->back();
     }
 
