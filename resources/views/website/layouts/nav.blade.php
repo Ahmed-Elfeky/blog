@@ -21,7 +21,6 @@ $categories = Category::get();
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item @yield('home-active')"><a class="nav-link" href="{{ route('website.index') }}">Home</a></li>
                         <li class="nav-item @yield('contact-active')"><a class="nav-link" href="{{ route('website.contact') }}">Contact</a></li>
-                        <li class="nav-item @yield('blog-active')"><a class="nav-link" href="{{ route('website.blog') }}">Blog</a></li>
                         <li class="nav-item submenu dropdown @yield('category-active')">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
                             <ul class="dropdown-menu">
@@ -39,7 +38,7 @@ $categories = Category::get();
                         <a href="{{ route('register') }}" class="btn btn-sm btn-warning">Register / Login</a>
                         @else
                         <li class="nav-item submenu dropdown d-flex align-items-center">
-                            <a href="#" class="nav-link dropdown-toggel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
+                            <a href="#" class="nav-link dropdown-toggel mr-2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
                             <img class="rounded-circle" style="height: 40px; width:45px" src="{{asset('images/user/'.auth()->user()->logo)}}">
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('website.MyBlog') }}">My Blogs</a></li>

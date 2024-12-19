@@ -113,106 +113,7 @@
                                 </div>
                             @endforeach
                         @endif
-
-
-
-                        {{-- <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/img/blog/c1.jpg')}}" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Emilly Blunt</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
                     </div>
-                    <div class="comment-list left-padding">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/img/blog/c2.jpg')}}" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Elsie Cunningham</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list left-padding">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/img/blog/c3.jpg')}}" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Annie Stephens</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="{{ asset('assets/img/blog/c4.jpg')}}" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Maria Luna</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="assets/img/blog/c5.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Ina Hayes</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div> --}}
-                    </div>
-
 
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>
@@ -279,14 +180,12 @@
                                     @foreach ($categories as $category )
                                     <li>
                                         <a href="#" class="d-flex justify-content-between">
-                                            <p></p>
-                                            <p>(03)</p>
+                                            <p>{{$category->name}}</p>
+                                            <p>({{ count($category->blogs)  }})</p>
                                         </a>
                                     </li>
                                     @endforeach
                                 @endif
-                                
-                           
                             </ul>
                         </div>
 
@@ -343,35 +242,7 @@
                             </div>
                         </div>
 
-                        <div class="single-sidebar-widget tag_cloud_widget">
-                            <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">project</a>
-                                </li>
-                                <li>
-                                    <a href="#">love</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">software</a>
-                                </li>
-                                <li>
-                                    <a href="#">life style</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
-                                </li>
-                            </ul>
-                        </div>
+                      
                     </div>
                 </div>
             </div>

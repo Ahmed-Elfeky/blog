@@ -12,7 +12,7 @@ class WebsiteController extends Controller
 
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::paginate(3);
         return view('website.index', compact('blogs'));
     }
     public function category($id)
@@ -31,7 +31,7 @@ class WebsiteController extends Controller
         $blogs = Blog::where('user_id',auth()->id())->get();
         return view('website.blogs.myblog',compact('blogs'));
     }
-    
+
     // public function blogDetailes($id)
     // {
     //     $blog = Blog::find($id);

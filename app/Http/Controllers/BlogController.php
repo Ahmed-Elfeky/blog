@@ -22,9 +22,9 @@ class BlogController extends Controller
 
     public function index()
     {
-
-        $blogs = Blog::all();
-        return view('website.index', compact('blogs'));
+        $categories = Category::all();
+        $blogs = Blog::latest()->take(5)->get();
+        return view('website.index', compact('blogs','categories'));
     }
 
 
@@ -50,17 +50,18 @@ class BlogController extends Controller
         return redirect()->route('blogs.index');
     }
 
-public function show(Blog $blog){
-    $comments  = Comment::all();
-    return view('website.blogs.details', compact('blog','comments'));
-
-}
+    public function show(Blog $blog)
+    {
+        $comments  = Comment::all();
+        $categories = Category::all();
+        return view('website.blogs.details', compact('blog', 'comments', 'categories'));
+    }
 
     public function edit($id)
     {
         $blog = Blog::find($id);
         $categories = Category::all();
-        return view('website.blogs.edit', compact('blog','categories'));
+        return view('website.blogs.edit', compact('blog', 'categories'));
     }
 
 
@@ -84,7 +85,7 @@ public function show(Blog $blog){
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         $blog = Blog::find($id);
         if (File::exists(public_path('images/blogs/' . $blog->image))) {
@@ -92,7 +93,5 @@ public function show(Blog $blog){
         }
         $blog->delete();
         return redirect()->route('website.MyBlog');
-
     }
-    
 }
